@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 import tensorflow as tf
 
+
 class EstimationNet:
     """ Estimation Network
 

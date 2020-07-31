@@ -2,6 +2,7 @@
 import numpy as np
 import tensorflow as tf
 
+
 class GMM:
     """ Gaussian Mixture Model (GMM) """
     def __init__(self, n_comp):

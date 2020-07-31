@@ -1,5 +1,6 @@
 from gae.initializations import *
-import tensorflow as tf
+import tensorflow.compat.v1 as tf
+tf.disable_v2_behavior()
 
 flags = tf.app.flags
 FLAGS = flags.FLAGS
@@ -19,15 +20,15 @@ def get_layer_uid(layer_name=''):
         return _LAYER_UIDS[layer_name]
 
 
-def dropout_sparse(x, keep_prob, num_nonzero_elems):
+def dropout_sparse(x, rate, num_nonzero_elems):
     """Dropout for sparse tensors. Currently fails for very large sparse tensors (>1M elements)
     """
     noise_shape = [num_nonzero_elems]
-    random_tensor = keep_prob
+    random_tensor = 1 - rate
     random_tensor += tf.random_uniform(noise_shape)
     dropout_mask = tf.cast(tf.floor(random_tensor), dtype=tf.bool)
     pre_out = tf.sparse_retain(x, dropout_mask)
-    return pre_out * (1./keep_prob)
+    return pre_out * (1./(1 - rate))
 
 
 class Layer(object):
