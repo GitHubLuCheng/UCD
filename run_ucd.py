@@ -22,9 +22,7 @@ from sklearn.metrics import precision_recall_fscore_support, roc_auc_score, accu
 from sklearn.preprocessing import normalize
 import scipy.sparse as sp
 
-import tensorflow.compat.v1 as tf
-tf.disable_v2_behavior()
-print('TensorFlow version', tf.version)
+import tensorflow as tf
 import networkx as nx
 from gae.cost import CostAE, CostVAE
 from gae.model import GCNModelAE, GCNModelVAE
