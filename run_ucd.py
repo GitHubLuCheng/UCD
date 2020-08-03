@@ -4,8 +4,7 @@
 """ Run the UCD model.
 
 Usage: python run_ucd.py
-Input data files: ../data/source_target.csv, ../data/user_friend_follower.csv, ../data/source_target.csv
-Time: ~1M
+Input data files: ../data/newdata.pickle, ../data/user_friend_follower.csv, ../data/source_target.csv
 """
 
 import os, pickle
@@ -24,10 +23,11 @@ import scipy.sparse as sp
 
 import tensorflow as tf
 import networkx as nx
-from gae.cost import CostAE, CostVAE
-from gae.model import GCNModelAE, GCNModelVAE
-from gae.preprocessing_t import preprocess_graph, construct_feed_dict, sparse_to_tuple
 
+# external packages
+from modules.gae import CostAE, CostVAE
+from modules.gae import GCNModelAE, GCNModelVAE
+from modules.gae import preprocess_graph, construct_feed_dict, sparse_to_tuple
 from modules.gmm import GMM
 from modules.attention_layer import AttLayer
 from modules.estimation_net import EstimationNet
@@ -337,6 +337,8 @@ def main():
     print('>>> recall mean: {0.4f}; recall std: {1:.4f}'.format(np.mean(recall_list), np.std(recall_list)))
     print('>>> f1 mean: {0.4f}; f1 std: {1:.4f}'.format(np.mean(f1_list), np.std(f1_list)))
     print('>>> auc mean: {0.4f}; auc std: {1:.4f}'.format(np.mean(auc_list), np.std(auc_list)))
+
+    timer.stop()
 
 
 if __name__ == '__main__':
