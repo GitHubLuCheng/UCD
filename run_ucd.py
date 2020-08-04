@@ -5,6 +5,7 @@
 
 Usage: python run_ucd.py
 Input data files: ../data/instagram.pickle, ../data/user_friend_follower.csv, ../data/source_target.csv
+Time: 30M
 """
 
 from __future__ import division, print_function

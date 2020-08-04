@@ -4,15 +4,13 @@ Our experiments use two public datasets crawled from Instagram and Vine.
 The datasets were respectively introduced and released in [1] and [2]. 
 Please reach out to the wonderful [CU Boulder team](https://sites.google.com/site/cucybersafety/home/cyberbullying-detection-project/dataset) for the datasets.
 
-* `user_friend_follower.csv`
+* `instagram.pickle`, 2218 session
 
 The CU Boulder team provides 3 csv files for the Instagram dataset -- `sessions_0plus_to_10_metadata.csv`, `sessions_10plus_to_40_metadata.csv`, and `sessions_40plus_metadata.csv`.
 First concatenate these 3 files into 1 csv file, name it `instagram.csv`, and place it in current folder.
 
-Next, run our data wrangling script [preprocess.py](preprocess.py).
-Note that we use the `glove.twitter.27B.50d.txt` for word representation.
-Download it from [GloVe](https://nlp.stanford.edu/projects/glove/) and place it in current folder.
-After running [preprocess.py](preprocess.py), an input file `instagram.pickle` for the main program is generated.
+We use [glove.twitter.27B.50d.txt](https://nlp.stanford.edu/projects/glove/) for word representation.
+Next, run our data wrangling script [preprocess.py](preprocess.py), an input file `instagram.pickle` for the main program is generated.
 
 The CU Boulder team also provide the "follows" and "followed" list for each user.
 Extract the network statistics and detailed network into the following 2 files, and place them in the current folder.

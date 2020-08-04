@@ -6,6 +6,7 @@
 Usage: python preprocess.py
 Input data files: ./instagram.csv
 Output data files: ./instagram.pickle
+Time: 1M
 """
 
 from __future__ import division, print_function
