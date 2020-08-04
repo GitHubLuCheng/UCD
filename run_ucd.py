@@ -4,10 +4,12 @@
 """ Run the UCD model.
 
 Usage: python run_ucd.py
-Input data files: ../data/newdata.pickle, ../data/user_friend_follower.csv, ../data/source_target.csv
+Input data files: ../data/instagram.pickle, ../data/user_friend_follower.csv, ../data/source_target.csv
 """
 
-import os, pickle
+from __future__ import division, print_function
+
+import sys, os, pickle
 import numpy as np
 import pandas as pd
 
@@ -25,9 +27,9 @@ import tensorflow as tf
 import networkx as nx
 
 # external packages
-from modules.gae import CostAE, CostVAE
-from modules.gae import GCNModelAE, GCNModelVAE
-from modules.gae import preprocess_graph, construct_feed_dict, sparse_to_tuple
+from modules.gae.cost import CostAE, CostVAE
+from modules.gae.model import GCNModelAE, GCNModelVAE
+from modules.gae.preprocessing_t import preprocess_graph, construct_feed_dict, sparse_to_tuple
 from modules.gmm import GMM
 from modules.attention_layer import AttLayer
 from modules.estimation_net import EstimationNet

@@ -7,6 +7,8 @@ Usage: python run_ucd.py
 Input data files: ../data/source_target.csv, ../data/user_friend_follower.csv, ../data/source_target.csv
 """
 
+from __future__ import division, print_function
+
 import os, pickle
 import numpy as np
 import pandas as pd
@@ -24,9 +26,9 @@ from scipy import sparse
 import tensorflow as tf
 import networkx as nx
 
-from modules.gae import CostAE, CostVAE
-from modules.gae import GCNModelAE, GCNModelVAE
-from modules.gae import preprocess_graph, construct_feed_dict, sparse_to_tuple
+from modules.gae.cost import CostAE, CostVAE
+from modules.gae.model import GCNModelAE, GCNModelVAE
+from modules.gae.preprocessing_t import preprocess_graph, construct_feed_dict, sparse_to_tuple
 from modules.gmm import GMM
 from modules.attention_layer import AttLayer
 from modules.estimation_net import EstimationNet
