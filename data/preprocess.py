@@ -23,8 +23,8 @@ from sklearn.utils import shuffle
 os.environ['KMP_DUPLICATE_LIB_OK'] = 'True'
 ENG_STOPWORDS = stopwords.words('english')
 
-MAX_SENT_LENGTH = 30
-MAX_SENTS = 195
+MAX_SENT_LENGTH = 20
+MAX_SENTS = 200
 MAX_NB_WORDS = 2000
 EMBEDDING_DIM = 50
 DTFormat = '%Y-%m-%d %H:%M:%S'
@@ -159,7 +159,7 @@ def main():
     han_data = np.dstack((text_tensor, pad_time_sequence_all))
     print('Hierarchical Attention Network data shape (text + time):', han_data.shape)
 
-    embedding_matrix = np.random.random((len(word_index), EMBEDDING_DIM))
+    embedding_matrix = np.random.random((len(word_index) + 1, EMBEDDING_DIM))
     for word, idx in word_index.items():
         embedding_vector = embeddings_index.get(word)
         if embedding_vector is not None:
@@ -174,8 +174,7 @@ def main():
                   'word_index': word_index,
                   'df': df}
 
-    with open(output_filepath, 'wb') as fout:
-        pickle.dump(store_data, fout, protocol=pickle.HIGHEST_PROTOCOL)
+    pickle.dump(store_data, open(output_filepath, 'wb'))
     print('successfully write to output file {0}'.format(output_filepath))
 
 
