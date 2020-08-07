@@ -1,10 +1,10 @@
 # UCD - Unsupervised Cyberbullying Detection 
 
-Implementation of <ins>U</ins>nsupervised <ins>C</ins>yberbullying <ins>D</ins>etection via a Time-Informed Gaussian Mixture Model (UCD) [1].
+Implementation of <ins>U</ins>nsupervised <ins>C</ins>yberbullying <ins>D</ins>etection via Time-Informed Gaussian Mixture Model (UCD) [1].
 
 The UCD framework consists of two major components:
 (1) a representation learning network that leverages HAN and GAE to obtain multi-modal representations,
-and (2) a multi-task learning network that jointly optimizes a GMM-based energy estimation task to detect cyberbullying instances and a temporal prediction task to further refine the session representations with temporal characterizations.
+and (2) a multi-task learning network that jointly optimizes a GMM-based energy estimation task to predict cyberbullying instances and a temporal prediction task to further refine the session representations with the comment inter-arrival times.
 
 ![Temporally tweet counts and sampling rates](UCD_framework.png)
 
@@ -24,4 +24,4 @@ The output is the averaged Precision, Recall, F1, AUC, and the corresponding sta
 
 
 ### Reference
-> \[1\] [Lu Cheng](http://www.public.asu.edu/~lcheng35/), [Kai Shu](http://www.cs.iit.edu/~kshu/), [Siqi Wu](https://avalanchesiqi.github.io/), [Yasin N. Silva](http://www.public.asu.edu/~ynsilva/), [Deborah L. Hall](http://www.dhallpsych.com/index), and [Huan Liu](http://www.public.asu.edu/~huanliu/). Unsupervised Cyberbullying Detection via a Time-Informed Gaussian Mixture Model. *ACM Conference on Information and Knowledge Management (CIKM)*, 2020. \[[paper]()\]
+> \[1\] [Lu Cheng](http://www.public.asu.edu/~lcheng35/), [Kai Shu](http://www.cs.iit.edu/~kshu/), [Siqi Wu](https://avalanchesiqi.github.io/), [Yasin N. Silva](http://www.public.asu.edu/~ynsilva/), [Deborah L. Hall](http://www.dhallpsych.com/index), and [Huan Liu](http://www.public.asu.edu/~huanliu/). Unsupervised Cyberbullying Detection via Time-Informed Gaussian Mixture Model. *ACM Conference on Information and Knowledge Management (CIKM)*, 2020. \[[paper](https://arxiv.org/abs/2008.02642)\]
